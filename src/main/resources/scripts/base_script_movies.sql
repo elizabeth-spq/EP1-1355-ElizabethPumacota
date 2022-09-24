@@ -45,3 +45,25 @@ delete FROM movie  WHERE id=10;
 
 /*Consultar*/
 select * from Movie
+
+
+
+/*CREANCION DE SP*/
+create procedure actualizar ( in p_id int,in p_filmGenre varchar(50))
+begin
+	update movie
+	set
+	filmGenre = p_filmGenre where id = p_id;
+end
+
+call actualizar(12,"Drama histórico");
+
+
+
+create procedure eliminar ( in p_id int)
+begin
+	delete from  movie
+	where id = p_id;
+end
+
+call eliminar(12);
